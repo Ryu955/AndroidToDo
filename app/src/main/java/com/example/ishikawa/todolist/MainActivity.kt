@@ -6,6 +6,8 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ListView
+import com.example.ishikawa.todolist.model.Task
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -22,7 +24,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddList::class.java)
             startActivity(intent)
         }
-        testText.text = intent.getStringExtra(AddList.EXTRA_TEXTDATA)
+        val listAdapter = TaskListAdapter(applicationContext)
+        listAdapter.tasks = listOf(Task("123","taro"),Task("234","jiro"))
+
+        val listView: ListView = findViewById(R.id.taskList) as ListView
+        listView.adapter = listAdapter
+//        testText.text = intent.getStringExtra(AddList.EXTRA_TEXTDATA)
 
     }
 

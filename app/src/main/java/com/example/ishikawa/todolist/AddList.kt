@@ -19,9 +19,13 @@ class AddList : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         addBtn.setOnClickListener{
-            val intent = Intent(this,MainActivity::class.java)
-            intent.putExtra(EXTRA_TEXTDATA,editText.text.toString())
-            startActivity(intent)
+            if(editText.text.toString() == ""){
+                editText.error = "なにか入力してください"
+            }else {
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra(EXTRA_TEXTDATA, editText.text.toString())
+                startActivity(intent)
+            }
         }
     }
 
