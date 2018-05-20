@@ -8,8 +8,10 @@ import android.view.Menu
 import android.view.MenuItem
 
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +22,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AddList::class.java)
             startActivity(intent)
         }
+        testText.text = intent.getStringExtra(AddList.EXTRA_TEXTDATA)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
